@@ -1,6 +1,8 @@
 import 'package:fast_food/screens/signUp.dart';
 import 'package:flutter/material.dart';
 
+import 'discoveryPage.dart';
+
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -90,7 +92,7 @@ class _LoginState extends State<Login> {
                 minWidth:MediaQuery.of(context).size.width*0.9,
 
                 onPressed: (){
-                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Discovery()));
                 },
                 color: org2,
                 shape: RoundedRectangleBorder(
