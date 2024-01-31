@@ -191,6 +191,9 @@ class _DiscoveryState extends State<Discovery> {
                     itemBuilder: (context, index) {
                       return Card(
                         elevation: 5,
+                         shape: RoundedRectangleBorder(
+                           borderRadius: BorderRadius.all(Radius.circular(15))
+                         ),
                          clipBehavior: Clip.antiAlias,
                         child: Column(
                           children: [
@@ -288,9 +291,9 @@ class _DiscoveryState extends State<Discovery> {
                 ],
               ),
               Container(
-                  height: size.height * 0.3,
+                  height: size.height * 0.2,
                   width: size.width,
-                  decoration: BoxDecoration(color: Colors.pink),
+                  decoration: BoxDecoration(color: Colors.white),
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     clipBehavior: Clip.antiAlias,
@@ -303,18 +306,19 @@ class _DiscoveryState extends State<Discovery> {
 
                         child: SizedBox(
                           width: size.width * 0.4,
-                        //  height: size.height * 0.1,
+                          height: size.height*0.2,
                           child: Column(
                             children: [
                               Container(
-                                height: size.height * 0.2,
+                                color: Colors.white,
+                                height: size.height * 0.1,
                                 child: Image(
                                   image: AssetImage("assets/burger.jpg"),
 
                                 ),
                               ),
                               Text(
-                                "Crazy tacko",
+                                "Burgirr",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
