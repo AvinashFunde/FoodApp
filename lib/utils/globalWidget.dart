@@ -104,7 +104,9 @@ class GlobalWidgets {
                       width: size.width * 0.5,
                       child: Image(
                         image: AssetImage(image),
-                        fit: BoxFit.fill,
+                       // fit: BoxFit.cover,
+                        width: 10,
+                        height: 10,
                       ),
                     ),
                     Text(
@@ -197,5 +199,22 @@ class GlobalWidgets {
             );
           },
         ));
+  }
+
+  Widget searchPAgeContainer (String reacentSearchText){
+    return  Container(
+      height: 40,
+      padding: EdgeInsets.all(7),
+      decoration: BoxDecoration(
+          color: org1,
+          borderRadius: BorderRadius.circular(10)
+      ),
+      child: Text(reacentSearchText,
+          style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w400,
+              color: Colors.white
+          )),
+    );
   }
 }

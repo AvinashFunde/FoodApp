@@ -67,7 +67,7 @@ class _RestaurentState extends State<Restaurent> {
             ),
             GlobalWidgets().fantasticItems(fruit, "Testy fruits",
                 "Fruits bown is the very as well as healthy for us", size),
-            GlobalWidgets.popularItems(momos, "Momes", "momos is best fast food", size)
+            GlobalWidgets.popularItems(salat, "Momes", "momos is best fast food", size)
           ],
         ),
       ),
