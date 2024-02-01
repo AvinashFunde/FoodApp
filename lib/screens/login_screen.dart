@@ -1,6 +1,7 @@
 import 'package:fast_food/screens/signUp.dart';
 import 'package:flutter/material.dart';
 
+import 'bottamNAvBar.dart';
 import 'discoveryPage.dart';
 
 class Login extends StatefulWidget {
@@ -14,6 +15,7 @@ class _LoginState extends State<Login> {
   Color org1 = Color(0xFFFE8201);
   Color org2 = Color(0xFFFB3C04);
   Color btn = Color(0xFFF94F1A);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -50,9 +52,8 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(10)),
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: org2,
-                        )
-                    )),
+                      color: org2,
+                    ))),
               ),
               SizedBox(height: 30),
               Text(
@@ -64,7 +65,6 @@ class _LoginState extends State<Login> {
               ),
               SizedBox(height: 10),
               TextField(
-
                 decoration: InputDecoration(
                     hintText: "Password",
                     suffixIcon: Icon(Icons.remove_red_eye),
@@ -73,38 +73,37 @@ class _LoginState extends State<Login> {
                     ),
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: org2,
-                        )
-                    )),
+                      color: org2,
+                    ))),
               ),
               Padding(
-                padding:  EdgeInsets.only(left: 240),
+                padding: EdgeInsets.only(left: 240),
                 child: TextButton(
-                    onPressed: (){},
-                    child: Text("Forgot password?",
-                    style: TextStyle(
-                      color: org1,
-                      fontSize: 15,
-                      decoration: TextDecoration.underline
-                    ),)),
+                    onPressed: () {},
+                    child: Text(
+                      "Forgot password?",
+                      style: TextStyle(
+                          color: org1,
+                          fontSize: 15,
+                          decoration: TextDecoration.underline),
+                    )),
               ),
               MaterialButton(
-                minWidth:MediaQuery.of(context).size.width*0.9,
-
-                onPressed: (){
-                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Discovery()));
+                minWidth: MediaQuery.of(context).size.width * 0.9,
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => BottomNav()));
                 },
                 color: org2,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
-                    ),
-                height: 60,
-                child: Text("Login",style: TextStyle(
-                   color: Colors.white
                 ),
+                height: 60,
+                child: Text(
+                  "Login",
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -116,19 +115,20 @@ class _LoginState extends State<Login> {
                         fontSize: 17),
                   ),
                   TextButton(
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignUp()));
                       },
-                      child: Text("Sign Up",
+                      child: Text(
+                        "Sign Up",
                         style: TextStyle(
-                          color: org1,
-                          fontSize: 15,
-                            decoration: TextDecoration.underline
-                        ),)),
+                            color: org1,
+                            fontSize: 15,
+                            decoration: TextDecoration.underline),
+                      )),
                 ],
               ),
               SizedBox(height: 20),
-
               Center(
                 child: Text(
                   "-----------------   Sign in with   ------------------ ",
@@ -140,68 +140,60 @@ class _LoginState extends State<Login> {
               ),
               SizedBox(height: 25),
               MaterialButton(
-                minWidth:MediaQuery.of(context).size.width*0.9,
-               elevation: 0,
-                  onPressed: (){},
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  side: BorderSide(
-                    color: Colors.black
-                  )
-                ),
-                height: 45,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-
-                  children: [
-                    Image.asset(
-                      'assets/Facebook_Logo.png', // Replace with the actual path to your asset image
-                      width: 20, // Adjust the width as needed
-                      height: 20, // Adjust the height as needed
-                    ),
-                    SizedBox(width: 5,),
-                    Text("Continue with Facebook",
-                    style: TextStyle(
-                       color: Colors.black54,
-                      fontSize: 16
-                    ),)
-                  ],
-                )
-              ),
+                  minWidth: MediaQuery.of(context).size.width * 0.9,
+                  elevation: 0,
+                  onPressed: () {},
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                      side: BorderSide(color: Colors.black)),
+                  height: 45,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/Facebook_Logo.png',
+                        // Replace with the actual path to your asset image
+                        width: 20, // Adjust the width as needed
+                        height: 20, // Adjust the height as needed
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "Continue with Facebook",
+                        style: TextStyle(color: Colors.black54, fontSize: 16),
+                      )
+                    ],
+                  )),
               SizedBox(height: 5),
               MaterialButton(
-                minWidth:MediaQuery.of(context).size.width*0.9,
-               elevation: 0,
-                onPressed: (){},
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  side: BorderSide(
-                    color: Colors.black
-                  )
-                ),
-                height: 45,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/google_logo.png', // Replace with the actual path to your asset image
-                      width: 24, // Adjust the width as needed
-                      height: 24, // Adjust the height as needed
-                    ),
-                    SizedBox(width: 5,),
-                    Text("Continue with Google",
-                    style: TextStyle(
-                       color: Colors.black54,
-                      fontSize: 16
-                    ),)
-                  ],
-                )
-              ),
-
-
-
+                  minWidth: MediaQuery.of(context).size.width * 0.9,
+                  elevation: 0,
+                  onPressed: () {},
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                      side: BorderSide(color: Colors.black)),
+                  height: 45,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/google_logo.png',
+                        // Replace with the actual path to your asset image
+                        width: 24, // Adjust the width as needed
+                        height: 24, // Adjust the height as needed
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "Continue with Google",
+                        style: TextStyle(color: Colors.black54, fontSize: 16),
+                      )
+                    ],
+                  )),
             ],
           ),
         ),
