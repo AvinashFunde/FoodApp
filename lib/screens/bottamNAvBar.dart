@@ -56,11 +56,11 @@ class _BottomNavState extends State<BottomNav> {
           BottomNavigationBarItem(
             // backgroundColor: Colors.red,
             icon: Icon(Icons.favorite),
-            label: 'Search',
+            label: 'Favorite',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Search',
+            label: 'Profile',
           ),
           // Add more items as needed
         ],

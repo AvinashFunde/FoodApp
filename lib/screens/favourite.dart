@@ -143,8 +143,10 @@ class _FavoriteState extends State<Favorite> {
                                       ),
                                     ),
                                     Text(fastfoodname[index],
-                                        style: GoogleFonts.abrilFatface(
-                                            fontSize: 20, letterSpacing: 5)),
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontFamily: 'PoppinsBold'
+                                        )),
                                     Padding(
                                       padding:
                                           EdgeInsets.only(top: 5, bottom: 5),

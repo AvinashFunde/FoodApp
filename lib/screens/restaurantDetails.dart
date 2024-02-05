@@ -4,13 +4,14 @@ import '../utils/colors.dart';
 import '../utils/colors.dart';
 
 class RestaurantDetailss extends StatefulWidget {
-   RestaurantDetailss({super.key,
+  RestaurantDetailss({
+    super.key,
     required this.image,
     required this.name,
-
   });
-   final String image;
-   final String name;
+
+  final String image;
+  final String name;
 
   @override
   State<RestaurantDetailss> createState() => _RestaurantDetailssState();
@@ -40,17 +41,29 @@ class _RestaurantDetailssState extends State<RestaurantDetailss> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
+                margin: EdgeInsets.only(bottom: 10),
                 height: size.height * 0.3,
                 width: size.width,
-                color: Colors.cyan,
+               decoration: BoxDecoration(
+                 color: Colors.white,
+                // border: Border.all(color: Colors.deepOrange,width: 2),
+                 borderRadius: BorderRadius.all( Radius.circular(20)),
+               ),
+                child: Image(fit: BoxFit.fill,
+                    image: AssetImage(
+                  "${widget.image}",
+
+                )),
               ),
               Row(
+                // mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text("La Pasta House",
+                  Text("${widget.name}",
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                       )),
+                  SizedBox(width: size.width*0.5,),
                   Icon(
                     Icons.favorite,
                     color: Colors.red,
@@ -131,14 +144,14 @@ class _RestaurantDetailssState extends State<RestaurantDetailss> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "${index+1}. Pesto Pasta",
+                                "${index + 1}. Pesto Pasta",
                                 style: TextStyle(
                                     fontSize: 23, fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 "Home made basil pasto, permesan cheese, sun dried tomatoes",
                                 style:
-                                    TextStyle(fontSize: 20, color: Colors.grey),
+                                    TextStyle(fontSize: 16, color: Colors.grey),
                               ),
                               Text(
                                 "Price 100",

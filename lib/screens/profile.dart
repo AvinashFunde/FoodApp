@@ -87,8 +87,7 @@ class _ProfileState extends State<Profile> {
                   padding: EdgeInsets.only(left: 30),
                   //minWidth: MediaQuery.of(context).size.width * 0.1,
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Login()));
+
                   },
 
                   shape: RoundedRectangleBorder(

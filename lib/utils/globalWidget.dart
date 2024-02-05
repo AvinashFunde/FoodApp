@@ -6,42 +6,48 @@ import 'colors.dart';
 
 class GlobalWidgets {
   static Widget mainWidgetTitleBar(String name, String icon, onTap, Size size,[bool showContainer = true]) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Text(name,
-            style: GoogleFonts.arvo(fontSize: 26, fontWeight: FontWeight.bold)),
-        if (showContainer)
-          Container(
-            height: 33,
-            width: 33,
-            decoration:
-            BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-            child: Image(
-              // height: 50,
-              // width: 50,
-              image: AssetImage(
-                icon,
+    return Padding(
+      padding: const EdgeInsets.only(left: 20,right: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(name,
+              style: TextStyle(
+                  fontSize: 20, fontWeight: FontWeight.bold,fontFamily: 'PoppinsBold'
+              )),
+          if (showContainer)
+            Container(
+              height: 33,
+              width: 33,
+              decoration:
+              BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+              child: Image(
+                // height: 50,
+                // width: 50,
+                image: AssetImage(
+                  icon,
+                ),
               ),
             ),
-          ),
-        SizedBox(width: 20),
-        MaterialButton(
-          elevation: 0,
-          onPressed: () {
-            onTap();
-          },
-          color: Colors.orange.shade100,
-          minWidth: size.width * 0.2,
-          shape: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.all(Radius.circular(50))),
-          child: Text("see all",
-              style: TextStyle(
-                color: btn,
-              )),
-        )
-      ],
+          SizedBox(width: 20),
+          MaterialButton(
+            elevation: 0,
+            onPressed: () {
+              onTap();
+            },
+            color: Colors.orange.shade100,
+            minWidth: size.width * 0.2,
+            height: size.height*0.04,
+            shape: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.all(Radius.circular(50))),
+            child: Text("see all",
+                style: TextStyle(
+                  color: btn,
+                )),
+          )
+        ],
+      ),
     );
   }
 
@@ -120,7 +126,7 @@ class GlobalWidgets {
                       productdescription,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 15,
+                          fontSize: 12,
                           color: Colors.grey),
                     ),
                   ],
@@ -132,18 +138,21 @@ class GlobalWidgets {
   }
 
   Widget fantasticItems(String image, name, description, Size size,onTap) {
-    return Container(
-        height: size.height * 0.3,
+    return
+      Container(
+
+        height: size.height * 0.27,
         width: size.width,
         decoration: BoxDecoration(color: Colors.white),
         child: ListView.builder(
+          padding: EdgeInsets.only(left: 20),
           scrollDirection: Axis.horizontal,
           clipBehavior: Clip.antiAlias,
           itemCount: 3,
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return GestureDetector(
-              onTap: (){},
+              onTap: onTap,
               child: Card(
                 elevation: 5,
                 shape: RoundedRectangleBorder(
@@ -155,7 +164,7 @@ class GlobalWidgets {
                   children: [
                     Container(
                       width: size.width * 0.78,
-                      height: size.height * 0.19,
+                      height: size.height * 0.15,
                       color: Colors.black,
                       child: Image(
                         image: AssetImage(image),
@@ -169,7 +178,8 @@ class GlobalWidgets {
                         name,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 18,
+                          fontFamily: 'PoppinsBold'
                         ),
                       ),
                     ),
@@ -178,7 +188,10 @@ class GlobalWidgets {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
-                          color: Colors.grey),
+                          color: Colors.grey,
+                          fontFamily: 'PoppinsMedium'
+
+                      ),
                     ),
                     SizedBox(height: 5,),
                     Row(

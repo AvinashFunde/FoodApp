@@ -60,29 +60,31 @@ class _DiscoveryState extends State<Discovery> {
 
   Widget location() {
     return Padding(
-      padding: EdgeInsets.only(top: 20, bottom: 10),
+      padding: EdgeInsets.only(top: 20, bottom: 1,left: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
             height: 33,
-            width: 40,
+            width: 25,
             decoration: BoxDecoration(color: btn, shape: BoxShape.circle),
-            child: Icon(Icons.home, color: Colors.black26),
+            child: Icon(Icons.home, color: Colors.white,size: 20),
           ),
           Text(
             "Home , ",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 18,
+              fontFamily: 'PoppinsBold',
             ),
           ),
           Text(
             "TechQuadra, Nagpue 440010.",
             style: TextStyle(
-              color: Colors.grey,
+            color: Colors.grey,
               fontWeight: FontWeight.bold,
               fontSize: 15,
+              fontFamily: 'PoppinsLight',
             ),
           ),
         ],
@@ -92,12 +94,14 @@ class _DiscoveryState extends State<Discovery> {
 
   Widget popularItems() {
     return Container(
+
         height: size.height * 0.2,
         width: size.width,
         decoration: BoxDecoration(color: Colors.white),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           clipBehavior: Clip.antiAlias,
+          padding: EdgeInsets.only(left: 20),
           itemCount: 3,
           shrinkWrap: true,
           itemBuilder: (context, index) {
@@ -119,15 +123,17 @@ class _DiscoveryState extends State<Discovery> {
                     Text(
                       "Burgirr",
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                        //fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                        fontFamily: 'PoppinsBold',
                       ),
                     ),
                     Text(
                       "Delicious tackos,",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 15,
+                          fontSize: 13,
+                          fontFamily: 'PoppinsRegular',
                           color: Colors.grey),
                     ),
                   ],
@@ -142,11 +148,12 @@ class _DiscoveryState extends State<Discovery> {
 
   Widget advertiseSlider() {
     return Container(
+      padding: EdgeInsets.only(left: 20,right: 20),
       height: size.height * 0.25,
       width: size.width,
       decoration: BoxDecoration(color: Colors.white),
       child: CarouselSlider.builder(
-          itemCount: 5,
+                  itemCount: 5,
           itemBuilder: (context, index, realIndex) {
             return Container(
               decoration: BoxDecoration(
@@ -169,6 +176,7 @@ class _DiscoveryState extends State<Discovery> {
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
+                              fontFamily: 'PoppinsMedium',
                               fontWeight: FontWeight.bold),
                         ),
                       ),

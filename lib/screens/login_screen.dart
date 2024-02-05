@@ -23,7 +23,6 @@ class _LoginState extends State<Login> {
         //resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
-
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -35,14 +34,15 @@ class _LoginState extends State<Login> {
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w700,
-                    fontSize: 35),
+                    fontSize: 35,
+                    fontFamily: 'PoppinsBold'),
               ),
               SizedBox(height: 35),
               Text(
                 "Email ",
                 style: TextStyle(
-                    color: Colors.black87,
-                    //fontWeight: FontWeight.w700,
+                    // color: Colors.black87,
+                    fontFamily: 'PoppinsMedium',
                     fontSize: 17),
               ),
               SizedBox(height: 10),
@@ -61,7 +61,7 @@ class _LoginState extends State<Login> {
                 "Password ",
                 style: TextStyle(
                     color: Colors.black87,
-                    //fontWeight: FontWeight.w700,
+                    fontFamily: 'PoppinsMedium',
                     fontSize: 17),
               ),
               SizedBox(height: 10),
@@ -86,6 +86,7 @@ class _LoginState extends State<Login> {
                       style: TextStyle(
                           color: org1,
                           fontSize: 15,
+                          fontFamily: 'PoppinsRegular',
                           decoration: TextDecoration.underline),
                     )),
               ),
@@ -102,7 +103,10 @@ class _LoginState extends State<Login> {
                 height: 60,
                 child: Text(
                   "Login",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'PoppinsRegular',
+                  ),
                 ),
               ),
               Row(
@@ -112,6 +116,7 @@ class _LoginState extends State<Login> {
                     "Don't have an account? ",
                     style: TextStyle(
                         color: Colors.black54,
+                        fontFamily: 'PoppinsRegular',
                         //fontWeight: FontWeight.w700,
                         fontSize: 17),
                   ),
@@ -125,6 +130,7 @@ class _LoginState extends State<Login> {
                         style: TextStyle(
                             color: org1,
                             fontSize: 15,
+                            fontFamily: 'PoppinsRegular',
                             decoration: TextDecoration.underline),
                       )),
                 ],
@@ -163,7 +169,11 @@ class _LoginState extends State<Login> {
                       ),
                       Text(
                         "Continue with Facebook",
-                        style: TextStyle(color: Colors.black54, fontSize: 16),
+                        style: TextStyle(
+                          color: Colors.black54,
+                          fontSize: 16,
+                          fontFamily: 'PoppinsMedium',
+                        ),
                       )
                     ],
                   )),
@@ -191,7 +201,7 @@ class _LoginState extends State<Login> {
                       ),
                       Text(
                         "Continue with Google",
-                        style: TextStyle(color: Colors.black54, fontSize: 16),
+                        style: TextStyle(color: Colors.black54, fontSize: 16,fontFamily: 'PoppinsMedium',),
                       )
                     ],
                   )),

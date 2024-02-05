@@ -53,14 +53,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text("Fast ",
                 style: TextStyle(
                    color: Colors.white,
-                  fontWeight: FontWeight.w900,
-                  fontSize: 35
+                 // fontWeight: FontWeight.w900,
+                  fontSize: 35,
+                    fontFamily: 'PoppinsBold'
                 ),),
                 Text(" Food",
                   style: TextStyle(
                       color: Colors.grey,
-                      fontWeight: FontWeight.w900,
-                      fontSize: 35
+                    //  fontWeight: FontWeight.w900,
+                      fontSize: 35,
+                      fontFamily: 'PoppinsBold'
                   ),),
               ],
             ),
