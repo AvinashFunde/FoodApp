@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fast_food/screens/favourite.dart';
 import 'package:fast_food/screens/profile.dart';
+import 'package:fast_food/screens/restaurantDetails.dart';
 import 'package:fast_food/screens/restaurents.dart';
 import 'package:fast_food/screens/search.dart';
 import 'package:fast_food/utils/globalWidget.dart';
@@ -24,32 +25,15 @@ class _DiscoveryState extends State<Discovery> {
 
   late Size size;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _getCurrentLocation();
-  // }
 
-  // Future<void> _getCurrentLocation() async {
-  //   try {
-  //     Position position = await Geolocator.getCurrentPosition(
-  //       desiredAccuracy: LocationAccuracy.high,
-  //     );
-  //     setState(() {
-  //       currentLocation = "Location: ${position.latitude}, ${position.longitude}";
-  //     });
-  //   } catch (e) {
-  //     setState(() {
-  //       currentLocation = "Error: $e";
-  //     });
-  //   }
-  // }
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
+          //padding: const EdgeInsets.all(16.0),
+
           child: Column(
             children: [
               location(),
@@ -59,7 +43,11 @@ class _DiscoveryState extends State<Discovery> {
               ),
               GlobalWidgets.mainWidgetTitleBar(
                   'Fantastic delivery', fire, () {}, size),
-              GlobalWidgets().fantasticItems(thali, "Craazy tacko", "Delicious tackos, Appetizing snack", size),
+              GlobalWidgets().fantasticItems(thali, "Craazy tacko", "Delicious tackos, Appetizing snack", size,
+                      (){
+               // Navigator.push(context, MaterialPageRoute(builder: (context)=>RestaurantDetailss(image: thali, name: "Craazy Tacko"))
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>RestaurantDetailss(image: thali, name: "Craazy Tacko")));
+                      }),
               GlobalWidgets.mainWidgetTitleBar(
                   'Popular items', clapHands, () {}, size),
               popularItems(),
@@ -150,75 +138,7 @@ class _DiscoveryState extends State<Discovery> {
         ));
   }
 
-  // Widget fantasticItems() {
-  //   return Container(
-  //       height: size.height * 0.3,
-  //       width: size.width,
-  //       decoration: BoxDecoration(color: Colors.white),
-  //       child: ListView.builder(
-  //         scrollDirection: Axis.horizontal,
-  //         clipBehavior: Clip.antiAlias,
-  //         itemCount: 3,
-  //         shrinkWrap: true,
-  //         itemBuilder: (context, index) {
-  //           return Card(
-  //             elevation: 5,
-  //             shape: RoundedRectangleBorder(
-  //                 borderRadius: BorderRadius.all(Radius.circular(15))),
-  //             clipBehavior: Clip.antiAlias,
-  //             child: Column(
-  //               children: [
-  //                 Container(
-  //                   width: size.width * 0.78,
-  //                   height: size.height * 0.19,
-  //                   color: Colors.black,
-  //                   child: Image(
-  //                     image: AssetImage("assets/thali.png"),
-  //                     fit: BoxFit.cover,
-  //                   ),
-  //                 ),
-  //                 Padding(
-  //                   padding: EdgeInsets.only(right: size.width * 0.38),
-  //                   child: Text(
-  //                     "Crazy tacko",
-  //                     style: TextStyle(
-  //                       fontWeight: FontWeight.bold,
-  //                       fontSize: 20,
-  //                     ),
-  //                   ),
-  //                 ),
-  //                 Text(
-  //                   "Delicious tackos, appetizing snack, fir...",
-  //                   style: TextStyle(
-  //                       fontWeight: FontWeight.bold,
-  //                       fontSize: 15,
-  //                       color: Colors.grey),
-  //                 ),
-  //                 Row(
-  //                   children: [
-  //                     Icon(Icons.delivery_dining, color: org1),
-  //                     Text("300", style: TextStyle(color: Colors.grey)),
-  //                     SizedBox(width: 25),
-  //                     Icon(
-  //                       Icons.timer,
-  //                       color: org1,
-  //                       size: 16,
-  //                     ),
-  //                     Text("30-40 min", style: TextStyle(color: Colors.grey)),
-  //                     SizedBox(width: 20),
-  //                     Icon(Icons.star, color: org1, size: 17),
-  //                     Text("9.5", style: TextStyle(color: Colors.grey)),
-  //                     SizedBox(
-  //                       width: size.width * 0.14,
-  //                     )
-  //                   ],
-  //                 )
-  //               ],
-  //             ),
-  //           );
-  //         },
-  //       ));
-  // }
+
 
   Widget advertiseSlider() {
     return Container(

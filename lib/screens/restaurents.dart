@@ -53,7 +53,7 @@ class _RestaurentState extends State<Restaurent> {
             ),
             Text("Restaurants",
                 style: GoogleFonts.arvo(
-                  fontSize: 40,
+                  fontSize: 30,
                 )),
             GlobalWidgets.mainWidgetTitleBar(
                 "Catogories", clapHands, () {}, size, false),
@@ -66,8 +66,8 @@ class _RestaurentState extends State<Restaurent> {
                       GoogleFonts.arvo(fontSize: 26, fontWeight: FontWeight.bold)),
             ),
             GlobalWidgets().fantasticItems(fruit, "Testy fruits",
-                "Fruits bown is the very as well as healthy for us", size),
-            GlobalWidgets.popularItems(salat, "Momes", "momos is best fast food", size)
+                "Fruits bown is the very as well as healthy for us", size,(){}),
+             GlobalWidgets.popularItems(salat, "Momes", "momos is best fast food", size)
           ],
         ),
       ),

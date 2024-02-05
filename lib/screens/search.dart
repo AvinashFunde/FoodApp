@@ -2,6 +2,7 @@ import 'package:fast_food/utils/globalWidget.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/colors.dart';
+import 'bottamNAvBar.dart';
 
 class Search extends StatefulWidget {
   Search({super.key});
@@ -59,7 +60,8 @@ class _SearchState extends State<Search> {
                       GlobalWidgets().searchPAgeContainer(suggest[index]),
                 )
               ],
-            )
+            ),
+
           ],
         ),
       ),

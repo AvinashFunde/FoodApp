@@ -28,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding:  EdgeInsets.all(8.0),
               child: Padding(
                 padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height*0.4),
                 child: InkWell(

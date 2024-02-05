@@ -131,7 +131,7 @@ class GlobalWidgets {
         ));
   }
 
-  Widget fantasticItems(String image, name, description, Size size) {
+  Widget fantasticItems(String image, name, description, Size size,onTap) {
     return Container(
         height: size.height * 0.3,
         width: size.width,
@@ -142,59 +142,67 @@ class GlobalWidgets {
           itemCount: 3,
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(15))),
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                children: [
-                  Container(
-                    width: size.width * 0.78,
-                    height: size.height * 0.19,
-                    color: Colors.black,
-                    child: Image(
-                      image: AssetImage(image),
-                      fit: BoxFit.cover,
+            return GestureDetector(
+              onTap: (){},
+              child: Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                clipBehavior: Clip.antiAlias,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+
+                  children: [
+                    Container(
+                      width: size.width * 0.78,
+                      height: size.height * 0.19,
+                      color: Colors.black,
+                      child: Image(
+                        image: AssetImage(image),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: size.width * 0.38),
-                    child: Text(
-                      name,
+
+                    Padding(
+                      padding: EdgeInsets.only(top: 5,bottom: 7),
+                      child: Text(
+                        name,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      description,
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: Colors.grey),
                     ),
-                  ),
-                  Text(
-                    description,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.grey),
-                  ),
-                  Row(
-                    children: [
-                      Icon(Icons.delivery_dining, color: org1),
-                      Text("300", style: TextStyle(color: Colors.grey)),
-                      SizedBox(width: 25),
-                      Icon(
-                        Icons.timer,
-                        color: org1,
-                        size: 16,
-                      ),
-                      Text("30-40 min", style: TextStyle(color: Colors.grey)),
-                      SizedBox(width: 20),
-                      Icon(Icons.star, color: org1, size: 17),
-                      Text("9.5", style: TextStyle(color: Colors.grey)),
-                      SizedBox(
-                        width: size.width * 0.14,
-                      )
-                    ],
-                  )
-                ],
+                    SizedBox(height: 5,),
+                    Row(
+                     // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Icon(Icons.delivery_dining, color: org1),
+                        Text("300", style: TextStyle(color: Colors.grey)),
+                        SizedBox(width: 25),
+                        Icon(
+                          Icons.timer,
+                          color: org1,
+                          size: 16,
+                        ),
+                        Text("30-40 min", style: TextStyle(color: Colors.grey)),
+                        SizedBox(width: 20),
+                        Icon(Icons.star, color: org1, size: 17),
+                        Text("9.5", style: TextStyle(color: Colors.grey)),
+                        SizedBox(
+                          width: size.width * 0.14,
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             );
           },

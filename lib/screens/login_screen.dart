@@ -20,14 +20,15 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Padding(
+        //resizeToAvoidBottomInset: false,
+        body: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
+
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.25,
+                height: MediaQuery.of(context).size.height * 0.07,
               ),
               Text(
                 "Login ",
