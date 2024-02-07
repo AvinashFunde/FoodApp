@@ -1,8 +1,11 @@
+import 'dart:convert';
+import 'dart:developer';
+import 'package:fast_food/apiService/login_responce.dart';
+import 'package:fast_food/apiService/reposiratory.dart';
 import 'package:fast_food/screens/signUp.dart';
 import 'package:flutter/material.dart';
-
-import 'bottamNAvBar.dart';
-import 'discoveryPage.dart';
+import '../apiService/login_request.dart';
+import 'package:http/http.dart' as http;
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -16,13 +19,16 @@ class _LoginState extends State<Login> {
   Color org2 = Color(0xFFFB3C04);
   Color btn = Color(0xFFF94F1A);
 
+  final TextEditingController emailController=TextEditingController();
+  final TextEditingController passwordController=TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         //resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
-          padding: const EdgeInsets.all(20.0),
+          padding:  EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -47,6 +53,7 @@ class _LoginState extends State<Login> {
               ),
               SizedBox(height: 10),
               TextField(
+                controller: emailController,
                 decoration: InputDecoration(
                     hintText: "Your email",
                     border: OutlineInputBorder(
@@ -66,6 +73,7 @@ class _LoginState extends State<Login> {
               ),
               SizedBox(height: 10),
               TextField(
+                controller: passwordController,
                 decoration: InputDecoration(
                     hintText: "Password",
                     suffixIcon: Icon(Icons.remove_red_eye),
@@ -93,8 +101,15 @@ class _LoginState extends State<Login> {
               MaterialButton(
                 minWidth: MediaQuery.of(context).size.width * 0.9,
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => BottomNav()));
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => BottomNav()));
+                  //LoginRequest();
+                  String email = emailController.text;
+                  String password = passwordController.text;
+
+                  print('Email: $email');
+                  print('Password: $password');
+
                 },
                 color: org2,
                 shape: RoundedRectangleBorder(
@@ -211,4 +226,88 @@ class _LoginState extends State<Login> {
       ),
     );
   }
+
+  static Future<Map<String, dynamic>?> loginUser(LoginRequest request) async {
+    // Define the API endpoint
+    String apiUrl = "https://reqres.in/api/login";
+
+    try {
+      // Convert the request model to JSON
+      Map<String, dynamic> requestData = request.toJson();
+
+      // Make the HTTP POST request
+      final response = await http.post(
+        Uri.parse(apiUrl),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: jsonEncode(requestData),
+      );
+
+      // Check if the response is successful (status code 200)
+      if (response.statusCode == 200) {
+        // Parse the response body
+        Map<String, dynamic> responseData = json.decode(response.body);
+        return responseData;
+      } else {
+        // Print the response status code (for debugging purposes)
+        print('API request failed with status code: ${response.statusCode}');
+        return null;
+      }
+    } catch (e) {
+      // Print any exceptions that occur during the request (for debugging purposes)
+      print('Exception during API request: $e');
+      return null;
+    }
+  }
+
+  void getLoginResponse() async {
+
+
+    // LoginRequest requestModel = LoginRequest();
+    //
+    // requestModel.email = emailController.text;
+    // requestModel.password = passwordController.text;
+    //
+    // log("hitverifymobileApi");
+    //
+    // LoginResponce? responseModel =
+    // await CommonRepository.hitLoginAPI(requestModel);
+    //
+    // if (responseModel != null) {
+    //   if (responseModel.status == 200) {
+    //     //SHDFClass.saveStringValue(KeyConstants.userMobileNo, mobileNoController.text.trim());
+    //     SHDFClass.saveIntValue(KeyConstants.userId, responseModel.payload!.id!);
+    //     log("userID : ${responseModel.payload!.id!}");
+    //
+    //     SHDFClass.saveStringValue(
+    //         KeyConstants.userEmailId, responseModel.payload!.email!);
+    //     SHDFClass.saveStringValue(
+    //         KeyConstants.userName, responseModel.payload!.name!);
+    //     SHDFClass.saveStringValue(
+    //         KeyConstants.userMobileNo, responseModel.payload!.mobileNo!);
+    //     SHDFClass.saveStringValue(
+    //         KeyConstants.token, responseModel.payload!.token!);
+    //     SHDFClass.saveStringValue(KeyConstants.deviceId, diviceToken!);
+    //     log("successMSG - ${responseModel.msg.toString()}");
+    //
+    //     countdownController.pause();
+    //
+    //     otpController.clear();
+    //     Get.to(() => const VerifySucceedScreen());
+    //
+    //     //Get.back();
+    //   } else {
+    //     showDialog(
+    //       context: Get.context!,
+    //       builder: (BuildContext context1) => OKDialog(
+    //         title: "",
+    //         descriptions: responseModel.msg,
+    //         img: errorImage,
+    //       ),
+    //     );
+    //   }
+    // }
+  }
+
 }

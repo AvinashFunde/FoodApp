@@ -40,20 +40,60 @@ class _RestaurantDetailssState extends State<RestaurantDetailss> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                margin: EdgeInsets.only(bottom: 10),
-                height: size.height * 0.3,
-                width: size.width,
-               decoration: BoxDecoration(
-                 color: Colors.white,
-                // border: Border.all(color: Colors.deepOrange,width: 2),
-                 borderRadius: BorderRadius.all( Radius.circular(20)),
-               ),
-                child: Image(fit: BoxFit.fill,
-                    image: AssetImage(
-                  "${widget.image}",
-
-                )),
+              Stack(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(bottom: 10),
+                    height: size.height * 0.3,
+                    width: size.width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      // border: Border.all(color: Colors.deepOrange,width: 2),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                    child: Image(
+                        fit: BoxFit.fill,
+                        image: AssetImage(
+                          "${widget.image}",
+                        )),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: 42,
+                        width: 42,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.black54,
+                        ),
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: Icon(Icons.arrow_back_ios_new_rounded,
+                          color: Colors.white
+                            ,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 42,
+                        width: 42,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.black54,
+                        ),
+                        child: IconButton(
+                          onPressed: () {                            Navigator.pop(context);
+                          },
+                          icon: Icon(Icons.close,
+                          color: Colors.white
+                            ,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
               ),
               Row(
                 // mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -63,7 +103,9 @@ class _RestaurantDetailssState extends State<RestaurantDetailss> {
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                       )),
-                  SizedBox(width: size.width*0.5,),
+                  SizedBox(
+                    width: size.width * 0.5,
+                  ),
                   Icon(
                     Icons.favorite,
                     color: Colors.red,

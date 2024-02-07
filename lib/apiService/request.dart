@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 
-class Request {
+class ApiClient {
 
 
   static requestGet({required String url, String? token}) async {

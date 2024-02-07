@@ -7,9 +7,9 @@ import 'colors.dart';
 class GlobalWidgets {
   static Widget mainWidgetTitleBar(String name, String icon, onTap, Size size,[bool showContainer = true]) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20,right: 20),
+      padding:  EdgeInsets.only(left: 20,right: 20),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(name,
               style: TextStyle(
@@ -54,7 +54,7 @@ class GlobalWidgets {
 
   Widget location() {
     return Padding(
-      padding: EdgeInsets.only(top: 20, bottom: 10),
+      padding: EdgeInsets.only(top: 20, bottom: 10,left: 20,right: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -76,7 +76,7 @@ class GlobalWidgets {
             style: TextStyle(
               color: Colors.grey,
               fontWeight: FontWeight.bold,
-              fontSize: 15,
+              fontSize: 13,
             ),
           ),
         ],
@@ -91,6 +91,7 @@ class GlobalWidgets {
         width: size.width,
         decoration: BoxDecoration(color: Colors.white),
         child: ListView.builder(
+          padding: EdgeInsets.only(left: 20),
           scrollDirection: Axis.horizontal,
           clipBehavior: Clip.antiAlias,
           itemCount: 5,

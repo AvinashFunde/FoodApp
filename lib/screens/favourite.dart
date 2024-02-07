@@ -1,8 +1,6 @@
 import 'package:fast_food/utils/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import 'bottamNAvBar.dart';
 
 class Favorite extends StatefulWidget {
   Favorite({super.key});
@@ -64,7 +62,7 @@ class _FavoriteState extends State<Favorite> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:  EdgeInsets.only(left: 20,right: 20),
                 child: Container(
                   padding: EdgeInsets.all(2),
                   margin: EdgeInsets.only(bottom: 15),
@@ -76,8 +74,13 @@ class _FavoriteState extends State<Favorite> {
                       border: Border.all(
                           color: Colors.black,
                           width: 1)), // Set your preferred color
-                  child: TabBar(
-                    indicatorColor: Colors.white,
+                  child: TabBar(unselectedLabelColor: Colors.grey,
+                    indicatorColor: Colors.red,
+                    indicator: BoxDecoration(
+                      color: org2,
+                      borderRadius: BorderRadius.circular(25),
+
+                    ),
                     //unselectedLabelColor: Colors.grey,
 
                     tabs: [
@@ -87,13 +90,14 @@ class _FavoriteState extends State<Favorite> {
                           height: MediaQuery.of(context).size.height,
                           width: MediaQuery.of(context).size.width * 0.45,
                           decoration: BoxDecoration(
-                              color: org2,
+                            //  color: org2,
                               borderRadius: BorderRadius.circular(50)),
                           child: Center(
                             child: Text(
                               "Food items",
                               style: TextStyle(
-                                  color: Colors.white70, fontSize: 15),
+                                 // color: Colors.grey,
+                                  fontSize: 15),
                             ),
                           ),
                         ),
@@ -103,13 +107,15 @@ class _FavoriteState extends State<Favorite> {
                           height: 100,
                           width: 300,
                           decoration: BoxDecoration(
-                              color: Colors.white,
+                             // color: Colors.white,
                               borderRadius: BorderRadius.circular(50)),
                           child: Center(
                             child: Text(
                               "Restaurants",
                               style:
-                                  TextStyle(color: Colors.grey, fontSize: 15),
+                                  TextStyle(
+                                     // color: Colors.grey,
+                                      fontSize: 15),
                             ),
                           ),
                         ),
@@ -125,7 +131,7 @@ class _FavoriteState extends State<Favorite> {
                       itemCount: fastfood.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: EdgeInsets.all(10.0),
+                          padding: EdgeInsets.all(20.0),
                           child: Stack(
                             children: [
                               Card(
@@ -202,7 +208,7 @@ class _FavoriteState extends State<Favorite> {
                                 ),
                               ),
                               Positioned(
-                                left: size.width * 0.82,
+                                left: size.width * 0.79,
                                 top: size.height * 0.02,
                                 child: Container(
                                   height: 35,
@@ -219,10 +225,13 @@ class _FavoriteState extends State<Favorite> {
                         );
                       },
                     ),
-                    Container(
-                      color: Colors.red,
-                      child: Center(
-                        child: Text("funde"),
+                    Padding(
+                      padding:  EdgeInsets.all(20.0),
+                      child: Container(
+                        color: Colors.orange,
+                        child: Center(
+                          child: Text("Work in progress......."),
+                        ),
                       ),
                     ),
                   ],

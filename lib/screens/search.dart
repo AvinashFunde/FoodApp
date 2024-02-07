@@ -24,7 +24,11 @@ class _SearchState extends State<Search> {
     "biryani",
     "dessert",
     "starter",
-    "samosa",
+    "idli",
+    "Doosa",
+    "Noodles",
+    "manchurian",
+    "kaabab",
   ];
 
   @override
@@ -49,17 +53,20 @@ class _SearchState extends State<Search> {
                 ),
               ),
             ),
-            Wrap(
-              runSpacing: 20,
-              spacing: 20,
-              alignment: WrapAlignment.center,
-              children: [
-                ...List.generate(
-                  suggest.length,
-                  (index) =>
-                      GlobalWidgets().searchPAgeContainer(suggest[index]),
-                )
-              ],
+            Padding(
+              padding:  EdgeInsets.all(20),
+              child: Wrap(
+                runSpacing: 20,
+                spacing: 20,
+                alignment: WrapAlignment.center,
+                children: [
+                  ...List.generate(
+                    suggest.length,
+                    (index) =>
+                        GlobalWidgets().searchPAgeContainer(suggest[index]),
+                  )
+                ],
+              ),
             ),
 
           ],

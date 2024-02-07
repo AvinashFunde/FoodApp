@@ -20,7 +20,7 @@ class _ProfileState extends State<Profile> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding:  EdgeInsets.only(top: 50.0,left: 20,right: 20),
+          padding: EdgeInsets.only(top: 50.0, left: 20, right: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -44,8 +44,9 @@ class _ProfileState extends State<Profile> {
                     letterSpacing: 3),
               ),
               Text("avinash12345@gmail.com"),
-              SizedBox(height: 20,),
-
+              SizedBox(
+                height: 20,
+              ),
               ListTile(
                 leading: Icon(Icons.person, color: org1),
                 title: Text("My Profile",
@@ -82,12 +83,13 @@ class _ProfileState extends State<Profile> {
                     style: TextStyle(fontWeight: FontWeight.w400)),
               ),
               Padding(
-                padding:  EdgeInsets.only(right: 220,left: 20,top: 40),
+                padding: EdgeInsets.only(right: 220, left: 20, top: 40),
                 child: MaterialButton(
                   padding: EdgeInsets.only(left: 30),
                   //minWidth: MediaQuery.of(context).size.width * 0.1,
                   onPressed: () {
-
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Login()));
                   },
 
                   shape: RoundedRectangleBorder(

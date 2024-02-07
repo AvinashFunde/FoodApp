@@ -1,10 +1,11 @@
-class LoginApi {
+
+class LoginRequest {
   String? email;
   String? password;
 
-  LoginApi({this.email, this.password});
+  LoginRequest({this.email, this.password});
 
-  LoginApi.fromJson(Map<String, dynamic> json) {
+  LoginRequest.fromJson(Map<String, dynamic> json) {
     email = json['email'];
     password = json['password'];
   }

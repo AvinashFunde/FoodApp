@@ -15,58 +15,63 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,end: Alignment.bottomCenter,
-            colors: [org1,org1,org2],
-          )
-        ),
+            gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [org1, org1, org2],
+        )),
         child: Column(
           children: [
             Padding(
-              padding:  EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: Padding(
-                padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height*0.4),
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.4),
                 child: InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Login()));
                   },
                   child: Container(
                     clipBehavior: Clip.antiAlias,
                     height: 100,
                     width: 100,
                     decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.all(Radius.circular(20))
+                        color: Colors.black,
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Image(
+                      image: AssetImage("assets/Splash.png"),
                     ),
-                    child: Image(image: AssetImage("assets/Splash.png"),),
                   ),
                 ),
               ),
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.center,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Fast ",
-                style: TextStyle(
-                   color: Colors.white,
-                 // fontWeight: FontWeight.w900,
-                  fontSize: 35,
-                    fontFamily: 'PoppinsBold'
-                ),),
-                Text(" Food",
+                Text(
+                  "Fast ",
+                  style: TextStyle(
+                      color: Colors.white,
+                      // fontWeight: FontWeight.w900,
+                      fontSize: 35,
+                      fontFamily: 'PoppinsBold'),
+                ),
+                Text(
+                  " Food",
                   style: TextStyle(
                       color: Colors.grey,
-                    //  fontWeight: FontWeight.w900,
+                      //  fontWeight: FontWeight.w900,
                       fontSize: 35,
-                      fontFamily: 'PoppinsBold'
-                  ),),
+                      fontFamily: 'PoppinsBold'),
+                ),
               ],
             ),
-
           ],
         ),
       ),

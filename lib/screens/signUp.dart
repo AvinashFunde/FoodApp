@@ -1,3 +1,4 @@
+import 'package:fast_food/screens/login_screen.dart';
 import 'package:fast_food/screens/resetPassword.dart';
 import 'package:flutter/material.dart';
 
@@ -134,7 +135,9 @@ class _SignUpState extends State<SignUp> {
                         fontSize: 17),
                   ),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+                      },
                       child: Text(
                         "LogIn",
                         style: TextStyle(

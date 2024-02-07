@@ -1,6 +1,6 @@
+import 'package:fast_food/screens/bottamNAvBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-
 
 class Verification_Screen extends StatefulWidget {
   const Verification_Screen({super.key});
@@ -10,6 +10,7 @@ class Verification_Screen extends StatefulWidget {
 }
 
 class _Verification_ScreenState extends State<Verification_Screen> {
+
   Color org1 = Color(0xFFFE8201);
   Color org2 = Color(0xFFFB3C04);
   Color btn = Color(0xFFF94F1A);
@@ -20,7 +21,7 @@ class _Verification_ScreenState extends State<Verification_Screen> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding:  EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -35,7 +36,7 @@ class _Verification_ScreenState extends State<Verification_Screen> {
                     fontSize: 35),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 35, bottom: 35),
+                padding:  EdgeInsets.only(top: 35, bottom: 35),
                 child: Text(
                   "Please enter your email address to request a Password reset",
                   style: TextStyle(
@@ -46,12 +47,12 @@ class _Verification_ScreenState extends State<Verification_Screen> {
               ),
               Center(
                 child: OtpTextField(
-
                   focusedBorderColor: org1,
                   fieldWidth: 60,
-                  borderRadius: BorderRadius.all(Radius.circular(10),),
-                 showFieldAsBox: true,
-
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  showFieldAsBox: true,
                 ),
               ),
               SizedBox(height: 20),
@@ -78,7 +79,10 @@ class _Verification_ScreenState extends State<Verification_Screen> {
               ),
               MaterialButton(
                 minWidth: MediaQuery.of(context).size.width * 0.9,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => BottomNav()));
+                },
                 color: org2,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
@@ -89,7 +93,6 @@ class _Verification_ScreenState extends State<Verification_Screen> {
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-
             ],
           ),
         ),
