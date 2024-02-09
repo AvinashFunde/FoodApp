@@ -8,7 +8,7 @@ class RestApiCall extends StatefulWidget {
 
   @override
   State<RestApiCall> createState() => _RestApiCallState();
-}
+    }
 
 class _RestApiCallState extends State<RestApiCall> {
   List<Data> avinash = [];
@@ -17,7 +17,7 @@ class _RestApiCallState extends State<RestApiCall> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("RestApiCall"),
+        title:  Text("RestApiCall"),
       ),
       body: Column(
         children: [
@@ -28,7 +28,7 @@ class _RestApiCallState extends State<RestApiCall> {
                 return Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(2.0),
+                      padding:  EdgeInsets.all(2.0),
                       child: ListTile(
                         leading: ClipRRect(
                             borderRadius: BorderRadius.circular(50),
@@ -54,7 +54,7 @@ class _RestApiCallState extends State<RestApiCall> {
       floatingActionButton: FloatingActionButton(
         onPressed: fetchuser,
         elevation: 10,
-        child: const Text("Apihit"),
+        child:  Text("Apihit"),
       ),
     );
   }

@@ -1,11 +1,8 @@
-import 'dart:convert';
-import 'dart:developer';
-import 'package:fast_food/apiService/login_responce.dart';
-import 'package:fast_food/apiService/reposiratory.dart';
 import 'package:fast_food/screens/signUp.dart';
 import 'package:flutter/material.dart';
-import '../apiService/login_request.dart';
-import 'package:http/http.dart' as http;
+import '../apiService/request.dart';
+import '../model/list_user_api.dart';
+import 'bottamNAvBar.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -19,8 +16,10 @@ class _LoginState extends State<Login> {
   Color org2 = Color(0xFFFB3C04);
   Color btn = Color(0xFFF94F1A);
 
-  final TextEditingController emailController=TextEditingController();
-  final TextEditingController passwordController=TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  List<Data> avi = [];
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class _LoginState extends State<Login> {
       child: Scaffold(
         //resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
-          padding:  EdgeInsets.all(20.0),
+          padding: EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -98,32 +97,28 @@ class _LoginState extends State<Login> {
                           decoration: TextDecoration.underline),
                     )),
               ),
+              // if(avi.isNotEmpty)
               MaterialButton(
-                minWidth: MediaQuery.of(context).size.width * 0.9,
-                onPressed: () {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => BottomNav()));
-                  //LoginRequest();
-                  String email = emailController.text;
-                  String password = passwordController.text;
-
-                  print('Email: $email');
-                  print('Password: $password');
-
-                },
-                color: org2,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                height: 60,
-                child: Text(
-                  "Login",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'PoppinsRegular',
+                  minWidth: MediaQuery.of(context).size.width * 0.9,
+                  onPressed: () async {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BottomNav()));
+                    await apicallbhai();
+                    setState(() {});
+                    String email = emailController.text;
+                    String password = passwordController.text;
+                    //
+                    // print('Email: $email');
+                    // print('Password: $password');
+                  },
+                  color: org2,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
                   ),
-                ),
-              ),
+                  height: 60,
+                  child: Text('login',style: TextStyle(
+                    color: Colors.white
+                  ),)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -150,6 +145,7 @@ class _LoginState extends State<Login> {
                       )),
                 ],
               ),
+            //  if (avi.isNotEmpty) Text(avi.first.email!),
               SizedBox(height: 20),
               Center(
                 child: Text(
@@ -216,7 +212,11 @@ class _LoginState extends State<Login> {
                       ),
                       Text(
                         "Continue with Google",
-                        style: TextStyle(color: Colors.black54, fontSize: 16,fontFamily: 'PoppinsMedium',),
+                        style: TextStyle(
+                          color: Colors.black54,
+                          fontSize: 16,
+                          fontFamily: 'PoppinsMedium',
+                        ),
                       )
                     ],
                   )),
@@ -227,87 +227,17 @@ class _LoginState extends State<Login> {
     );
   }
 
-  static Future<Map<String, dynamic>?> loginUser(LoginRequest request) async {
-    // Define the API endpoint
-    String apiUrl = "https://reqres.in/api/login";
+  Future<void> apicallbhai() async {
+    String url = "https://reqres.in/api/users?page=2";
 
-    try {
-      // Convert the request model to JSON
-      Map<String, dynamic> requestData = request.toJson();
+    final result = await Request.requestGet(url: url);
 
-      // Make the HTTP POST request
-      final response = await http.post(
-        Uri.parse(apiUrl),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: jsonEncode(requestData),
-      );
+    if (result != null) {
+      ListuserApi response = ListuserApi.fromJson(result);
 
-      // Check if the response is successful (status code 200)
-      if (response.statusCode == 200) {
-        // Parse the response body
-        Map<String, dynamic> responseData = json.decode(response.body);
-        return responseData;
-      } else {
-        // Print the response status code (for debugging purposes)
-        print('API request failed with status code: ${response.statusCode}');
-        return null;
-      }
-    } catch (e) {
-      // Print any exceptions that occur during the request (for debugging purposes)
-      print('Exception during API request: $e');
-      return null;
+      avi = response.data!;
+    } else {
+      print("data not found");
     }
   }
-
-  void getLoginResponse() async {
-
-
-    // LoginRequest requestModel = LoginRequest();
-    //
-    // requestModel.email = emailController.text;
-    // requestModel.password = passwordController.text;
-    //
-    // log("hitverifymobileApi");
-    //
-    // LoginResponce? responseModel =
-    // await CommonRepository.hitLoginAPI(requestModel);
-    //
-    // if (responseModel != null) {
-    //   if (responseModel.status == 200) {
-    //     //SHDFClass.saveStringValue(KeyConstants.userMobileNo, mobileNoController.text.trim());
-    //     SHDFClass.saveIntValue(KeyConstants.userId, responseModel.payload!.id!);
-    //     log("userID : ${responseModel.payload!.id!}");
-    //
-    //     SHDFClass.saveStringValue(
-    //         KeyConstants.userEmailId, responseModel.payload!.email!);
-    //     SHDFClass.saveStringValue(
-    //         KeyConstants.userName, responseModel.payload!.name!);
-    //     SHDFClass.saveStringValue(
-    //         KeyConstants.userMobileNo, responseModel.payload!.mobileNo!);
-    //     SHDFClass.saveStringValue(
-    //         KeyConstants.token, responseModel.payload!.token!);
-    //     SHDFClass.saveStringValue(KeyConstants.deviceId, diviceToken!);
-    //     log("successMSG - ${responseModel.msg.toString()}");
-    //
-    //     countdownController.pause();
-    //
-    //     otpController.clear();
-    //     Get.to(() => const VerifySucceedScreen());
-    //
-    //     //Get.back();
-    //   } else {
-    //     showDialog(
-    //       context: Get.context!,
-    //       builder: (BuildContext context1) => OKDialog(
-    //         title: "",
-    //         descriptions: responseModel.msg,
-    //         img: errorImage,
-    //       ),
-    //     );
-    //   }
-    // }
-  }
-
 }
